@@ -39,11 +39,12 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 
 ### 4. Branching, Merging & Conflict Handling
 
-* Resolving a conflict
-* Git reset to remote head – How to reset a remote branch to origin
-* Undoing changes in Git: revert, reset, checkout, and clean – When and how to use them
-* Restoring an old version of a file
 * Choosing a name for a Git branch
+* Resolving a conflict
+* Restoring an old version of a file
+* Undoing changes in Git: revert, reset, checkout, and clean – When and how to use them
+* Git reset to remote head – How to reset a remote branch to origin
+* Git: fixing common mistakes and undoing bad commits
 * TODO: A new cherry pick topic from the GitKraken Git course
 
 ### 5. Commits & Commit Quality
