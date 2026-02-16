@@ -1,0 +1,271 @@
+Reflect changes made to an original Git repository in a copy repository
+------------------------------------------------------------------------
+
+- Backup the copy repo
+-----------------------
+
+Example:
+Original repo: https://github.com/estebanways/commbase
+Copy repo: https://github.com/mydroidandi/commbase
+
+Practice the following in both repositories before copy them:
+
+```shell
+git status
+git pull origin fb/estebanways
+```
+
+Or, depending on your branches
+
+```shell
+git pull origin main
+```
+
+- Remove all the directories and files except .git/ in the copy repo
+---------------------------------------------------------------------
+
+Check the repo directory properties include number of files and content size.
+
+For example:
+242.5 MiB (254,269,288)
+3,378 files, 384 sub-folders
+
+You can use the script detailed-directory-info.sh to retrieve that information.
+
+- Paste a copy of the content, except .git/ from the original repo to the copy repo
+------------------------------------------------------------------------------------
+
+- In the copy repo
+-------------------
+
+```shell
+
+git diff > tmp_diff.txt
+```
+
+Paste the file to the directory: Reflect changes made to an original Git repository in a copy repository.
+
+- Select pieces of text to paste in ChatGPT
+--------------------------------------------
+
+Consolidate results in a single text tmp_diff_consolidated.txt
+
+Prompt
+-------
+
+Using this advice:
+
+To describe the changes in just one commit in the copy repository, you can follow these steps:
+
+Summarize the Changes: Provide a brief overview of the changes made in this commit. Mention that it includes modifications, new files, files moved, and files deleted.
+List Modifications: Enumerate the modifications made to existing files. Briefly describe the nature of each modification (e.g., bug fix, feature enhancement, code refactoring).
+Identify New Files: List the new files added to the repository and briefly describe their purpose or functionality.
+Note File Movements: Highlight any files that were moved within the repository, along with the reasons for the movement if applicable.
+Acknowledge Deleted Files: Mention any files that were deleted from the repository and explain the rationale behind their removal, if necessary.
+Provide Context (Optional): If there are specific reasons behind some of the changes (e.g., to address a bug, implement a new feature, or improve code structure), briefly explain them.
+Conclusion: Conclude the commit message with a summary statement reiterating the overall purpose of the changes and any significant outcomes expected.
+
+Summary:
+Consolidating Changes from Original Repository
+
+Details:
+- Modified 25 files to address various bugs and improve code efficiency.
+- Added 15 new files to implement additional features and enhance functionality.
+- Moved 5 files to reorganize project structure and improve maintainability.
+- Deleted 2 redundant files to streamline the repository.
+
+Context:
+This commit represents a consolidation of changes from the original repository, encompassing a total of 47 modifications, additions, movements, and deletions. These changes aim to enhance the overall stability, functionality, and organization of the codebase.
+
+Create a Git commit content using the next summary of the result of the command git diff:
+
+PASTE PIECE OF GIT DIFF HERE ...
+
+To avoid repeating pasting everything, prompt ChatGPT:
+
+Using the previous advice, Create a Git commit content using the next summary of the result of the following section of my git diff command:
+
+PASTE ANOTHER PIECE OF GIT DIFF HERE ...
+
+- Organize the consolidated content in a new file tmp_commit.txt
+-----------------------------------------------------------------
+
+Sections:
+
+Title:
+------
+
+Repository Refactoring and Feature Enhancements: Consolidated Changes
+
+Or, relies on the case:
+
+Consolidating Changes: Modifications, Additions, Movements, and Deletions
+
+
+Content:
+--------
+
+Consolidating Changes from Original Repository
+
+### Changes made in this repository
+
+(
+To get the commits list:
+
+In the copy repo, to obtain the day of the last pasted copy:
+
+```shell
+git log
+```
+
+In the original repo, use the date, example, for May 08, so the output includes commits starting from May 08, after 02:20:01:
+
+To get the commits list without hashes:
+
+```shell
+git log --after="2024-05-08T02:20:01" --pretty=oneline --decorate | cut -d ' ' -f 2- > tmp_commits_no_hashes.txt
+
+```
+Using cut command (removes everything before the first space.)
+
+Remember to clean up the content of the file (you can use ChatGPT.)
+
+Prompts for ChatGPT:
+
+Remove the duplicate lines from the following text list. Add a:
+-
+to every line
+
+PASTE THE CONTENT OF tmp_commits_no_hashes.txt HERE ...
+
+Add the results to the current section.
+
+)
+
+### Changes by file
+
+(
+Prompt ChatGPT to Summarize the changes by file, using:
+
+1. The new content of the file tmp_diff_consolidated.txt.
+2. It is supposed that we are yet in the same ChatGPT conversation so it remembers the previous git diff made.
+3. If you find mistakes or missing information at this point, you can compare any file version in the copy repository like this:
+
+```shell
+git diff bundles/commbase-stt-whisper-proactive-p/commbase_stt_whisper_proactive_p.py
+```
+
+)
+
+### Deleted Files
+
+(
+In the copy repository:
+
+```shell
+git status | grep deleted
+```
+)
+
+### New files
+
+(
+In the copy repository, copy the list of untracked files:
+
+```shell
+git status
+```
+)
+
+### Conclusion
+
+(
+Prompt ChatGPT for a conclusion based on the content of the section: ### Changes made in this repository
+
+Prompt:
+Draw a conclusion based on the next information ...
+)
+
+- Summarize the list using the new content of tmp_commit.txt, save it in tmp_updates.txt
+-----------------------------------------------------------------------------------------
+
+Save the summary in tmp_updates.txt
+
+Use titles like:
+
+### Enhancing Commbase: A Comprehensive Overview
+
+or:
+
+### Summary of Consolidating Changes in Commbase Repository
+
+If the summary is too big, keep only a list of the most significant/remarkable one (This will be used later on in the PULL REQUEST in the copy repo.)
+
+Prompts for ChatGPT:
+Make a summary using
+-
+for every statement, based on the most important information about the changes made from the next text (don't exceed the number of 13 sentences):
+
+TEXT HERE
+
+The verbs use should end in ing or ed, for example:
+
+Changes made:
+[OK] Deleted redundant and deprecated files related to skill parsing and running.
+[WRONG] Reflect variable changes and updates in user documentation for clarity.
+[OK] Enhanced hardware integration by adding functions for communicating STT statuses.
+
+I can prompt ChatGPT:
+Just modify the sentences of the list to use present continuous tense instead of past tense.
+
+Changes made:
+The changes made in this update include:
+
+[OK] Cleaning up the codebase by removing old comments, fixing comments, and changing verbs for clarity.
+[OK] Adding new scripts for internationalization purposes.
+[OK] Adding new files to manage the conversations directory.
+
+- Commit using the content of tmp_commit.txt to the copy repository on local and push changes on GitHub.com
+------------------------------------------------------------------------------------------------------------
+
+```shell
+# Make sure you checked out your feature branch
+git branch -a
+git checkout fb/estebanways
+git add .
+git commit -m "Title in tmp_commit.txt" -m "`Content in tmp_commit.txt`"
+git push origin fb/estebanways
+```
+
+In the pull request to merge on the development/main branch, add the content of tmp_updates.txt as a pull request comment.
+
+It should have title and content, for example:
+
+Title:
+(Prefer to leave the existent title, when it says the branch of the pull request, for example feature/estebanawys or Development. Otherwise, you can use something like: "Consolidating Changes: Enhancing Commbase Functionality")
+
+Content:
+
+Title:
+### Enhancing Commbase: A Comprehensive Overview
+
+- Resolving issues with pane display, optimizing code, and removing redundant variables.
+- Introducing a new configuration variable for benchmarking speech processing time.
+(...)
+
+- Backdrop build.com update or ship text field version
+-------------------------------------------------------
+
+Use the following title and structure in the field:
+
+Summary of Shipped Updates:
+
+- point 1
+- point 2
+- point 3
+
+For an alternative version of the update for a CEO or non technical, you can ask ChatGPT:
+
+Create a version of this text for a presentation to a CEO:
+
+PASTE HERE THE CONTENT OF tmp_updates.txt

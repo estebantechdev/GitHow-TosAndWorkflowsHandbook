@@ -1,0 +1,226 @@
+ 
+Title:
+------
+
+Repository Refactoring and Feature Enhancements: Consolidated Changes
+
+Content:
+--------
+
+Consolidating Changes from Original Repository
+
+### Changes made in the new "original" repository
+
+- Clean up the code
+- Create 'discourse_data_exchange_server_error.sh' script to be invoked by the Python function 'discourse_data_exchange_server_error()' within the data-exchange server. This script calls 'assistant_discourse.sh' with the discourse key 'data_exchange_server_error' for i18n
+- Create 'discourse_data_exchange_client_error.sh' script to be invoked by the Python function 'discourse_data_exchange_client_error()' within the data-exchange client. This script calls 'assistant_discourse.sh' with the discourse key 'data_exchange_client_error' for i18n
+- Add new files cleanup_directory_by_age.sh and cleanup_directory_by_file_count.sh to garbage collect the conversations directory in user/
+- Remove old comments
+- Change verb run with verb call
+- Fix comments
+- Add the log security level string 'INFO:' to user's discourses in case the severity levels variable is on
+- Add a case statement to route any i18n number passed as parameter to its proper discourse file
+- Update .gitignore to match the separation of src/ into two subdirectories client/ and server/
+- Add the property language to the object /data/.messages.json
+- Update the default value of the configuration variable TTS_ENGINE_STRING to  /home/commbase/Dev/commbase/bundles/commbase-tts-pyttsx3/commbase_tts_pyttsx3.py --rate TTS_PYTTSX3_RATE --voice-index TTS_PYTTSX3_LANGUAGE_INDEX
+- Add information about the 4 states in which the assistant logs discourses, and add a little guide to log assistant discourses appropriately, matching type of discourse and log severity level
+- Replace configuration variable CONTROL_PATTERNS_FILE with variables STT_ENGINE_MODEL_DIRECTORY STT_ENGINE_MODEL_SUBDIRECTORY
+- Reorganize control_patterns, discourses, and skill_patterns in the directories bundles/libcommbase/resources/i18n/, i18n/discourses/, and src/client/i18n/ to work with i18n
+- Lowercase JSON file keys
+- Clean up comments
+- Add new files skill_patterns.json for en_us and es_es
+- Update introduction
+- Add new file set_language, and write the code to make it work
+- Change configuration variable from COMMBASE_LOCALE to COMMBASE_LANG
+- Reorganize libcommbase directories control_patters, skill_patterns, and discourses, include openai whisper models small, medium, and large
+- Remove file mute_the_microphone_to_pause_the_recording_instruction
+- Upgrade project structure include separate client and server in src/, and the directory i18n
+- Create assistant_discourse.sh and its related files for internationalization, and prove it in app.sh
+- Add functions to mute capture and unmute capture before and after the assitant speaks out loud
+- Remove parameter from usage message
+- Remove commented unespcaped echoes without tmux arguments
+- Fix if statements with audio output and severity level
+- Remove comment #local pane="$1" from the routine run_voice_recorder_in_pane.sh
+- Fix if statements with audio output and severity level
+- Make commbase-stt-whisper-proactive-p use configuration variables from commbase.conf
+- Remove comments
+- Change name from reactive to proactive
+- Add comments about the time to read messages when the app stops
+- Add new configuration variable TTS_PYTTSX3_RATE
+- Program the code and add the documentation to make the language related variables COMMBASE_LOCALE, STT_ENGINE_LANGUAGE, and TTS_PYTTSX3_LANGUAGE_INDEX work properly in the bundles: commbase-tts-pyttsx3 and commbase-stt-whisper-reactive-p, and in the files: libcommbase/routines/list_all_voices_available_for_pyttsx3.py, commbase.default, INSTALL, User's Guide.md, etc.
+- Change permissions to key binding routine files
+- Revert change 'Insert two spaces to test the command git diff main origin/main'
+- Insert two spaces to test the command git diff main origin/main
+- Add todo notes to skills that should run new libcommbase key binding routines
+- Refactor key bindings as libcommbase routines and commbase commands
+- Add the new variable AUDIBLE_ASSISTANT_LOGGING_ON to the user's guide
+- Improve key binding scripts toggle_active_capture_device.sh and toggle_capture_on-off.sh
+- Add a script for testing a camera or webcam device
+- Update audio devices
+- Rewrite the section To Prepare a Dedicated Sound Capture Device
+- Add notes about keybindings
+- Move the audio setup steps from reccomm.sh into the file INSTALL
+- Create main functions
+- Create the configuration constant RECORDER_TRANSMITTER_FILE
+- Add new feature to press q to quit the voice recorder
+- Indent stop recording with a blank line
+- Update recorder-transmitters destination paths
+- Repository migration: Consolidated all files from the original repository into the new repository for simplified organization and streamlined version control.
+- Initial commit
+
+### Modifications by file
+
+#### Changes to .gitignore
+
+- Updated paths to ignore specific directories and files within the project structure.
+- Ignored directories like "src/client/bundles", "src/client/config", "src/client/log", and "src/server/skills_db".
+
+#### Changes to INSTALL file
+
+- Added instructions for setting up the voice and language configurations for Commbase.
+- Provided guidance on setting up audio capture methods, particularly focusing on leveraging the Whisper-based Speech-to-Text (STT) engines included in Commbase.
+- Introduced instructions for setting up a macro pad, a small programmable keypad for custom functions or macros.
+- Outlined setup steps for the reactive Speech-to-Text (STT) engine, recommended for getting started with Commbase. Steps include having a copy of the remote recorder-transmitter script, installing it as executable, setting up variables, configuring SSH connection, and verifying functionality.
+
+#### Update README.md
+
+- Updated to reflect the project's organization and structure, providing insights into directories like 'i18n', 'bundles', 'config', 'server', and 'client', and their respective contents.
+
+#### Update Users Guide.md
+
+- Changed the section title from "Configure the File to Toggle the Active Capture Device" to "Configure the File to Toggle the Default Capture Device."
+- Revised text to clarify the process of setting up a dedicated sound capture device.
+- Provided instructions for identifying and preparing a dedicated sound capture device.
+- Explained the significance of setting up the default capture device for Commbase and provided instructions for updating the configuration file (commbase.conf) with the selected capture devices.
+- Renamed and relocated keybinding script files.
+- Updated references to keybinding script files in configuration instructions.
+
+#### client_http_websocket.py
+
+- Imported necessary modules.
+- Defined event handler functions.
+- Added a main() function.
+- Included error handling.
+- Called a function `discourse_data_exchange_client_error()` to handle errors.
+
+#### functions.py
+
+- Included a function `discourse_data_exchange_client_error()`.
+
+#### updater_http_websocket.py
+
+- Included imports.
+- Defined functions to read and update JSON data.
+- Added a main() function.
+- Included error handling.
+- Called a function `discourse_data_exchange_client_error()`.
+
+#### json_1.json
+
+- Added a new key-value pair: `{"language": "en_us"}`.
+
+#### server_http_websocket.py
+
+- Organized imports.
+- Improved error handling.
+- Added a function `discourse_data_exchange_server_error()` to handle errors.
+- Modified the `save_json()` function to use a different shell script path and emit real-time updates to clients.
+- Modified the `update_json()` function to use a different shell script path.
+- Improved exception handling in various functions.
+
+#### Changes to reccomm.sh
+
+- Renamed the script from `recccom.sh` to `reccomm.sh`.
+- Refactored code for recording and transmitting audio.
+- Implemented a loop to await a key press to initiate or stop recording and send the file with SCP.
+
+#### commbase_stt_whisper_proactive_p.py
+
+- Imported and utilized various functions from external modules.
+- Set values for specific variables.
+- Implemented functionality for listening to speech input, recognizing audio, and writing text to a temporary file.
+- Modified the `main()` function to continuously listen for user input and write it to the temporary file.
+
+#### commbase_stt_whisper_reactive_p.py
+
+- Added a function `get_stt_engine_language()` to retrieve the language setting for the speech-to-text engine.
+
+#### functions.py
+
+- Added the function `get_stt_engine_language()` to read the 'STT_ENGINE_LANGUAGE' variable from the environment configuration file and return its value.
+
+#### controller.sh
+
+- Updated the path to control patterns JSON file to use variables.
+
+#### run_voice_recorder_in_pane.sh
+
+- Updated a comment to clarify the functionality of the script.
+
+#### update_control_in_messages_json.sh
+
+- Updated comments for clarity.
+
+#### Modified Configuration
+
+- Updated some configuration parameters in `commbase.conf`, including language settings and file paths.
+
+#### commbase.conf.default
+
+- Changed `COMMBASE_LOCALE` to `COMMBASE_LANG` and set it to "en_us".
+- Added settings for language and rate in TTS engine.
+- Added settings for proactive timeout in STT engine.
+- Added settings for language in various LLM engines.
+- Updated various paths and configurations related to logging, certificates, and other settings.
+
+#### commbase.default
+
+- Updated the script `commbase.default` to include options related to sound control and voice settings.
+
+#### app.sh
+
+- Added exporting of the time variable.
+- Updated the setup of Tmux session and panes.
+- Updated pane setup based on the STT engine being used.
+- Added setup for key bindings with xbindkeys.
+
+### Deleted Files
+
+- Deleted `capture_mute.sh`, `capture_unmute.sh`, and `toggle_active_capture_device.sh`.
+- Deleted `toggle_capture_on-off.sh`, `back_up_custom_agents_skills_and_skillsets.sh`, and `list_all_voices_available_for_pyttsx3.py`, and their associated Python script.
+- Deleted the entire file client_skill.sh
+- This suggests a removal or reorganization of functionality related to client skills execution.
+- `toggle_capture_on-off.sh`: A script to toggle sound capture on and off.
+- `control_patterns.json`: A JSON file containing control patterns.
+- `mute_the_microphone_to_pause_the_recording_instruction`: An instruction file.
+- `tell_me_about_yourself_introduction`: An introduction file.
+
+### New files
+
+Here's the list of new files excluding the ones that were deleted and then re-added:
+
+- assets/docs/Supported_languages.md
+- bundles/commbase-data-exchange/server/functions.py
+- bundles/commbase-data-exchange/server/updater_http_websocket.py
+- bundles/commbase-stt-whisper-proactive-p/functions.py
+- bundles/libcommbase/libcommbase/routines/assistant_discourse.sh
+- bundles/libcommbase/libcommbase/routines/capture_mute.sh
+- bundles/libcommbase/libcommbase/routines/cleanup_directory_by_age.sh
+- bundles/libcommbase/libcommbase/routines/cleanup_directory_by_file_count.sh
+- bundles/libcommbase/libcommbase/routines/discourse_data_exchange_client_error.sh
+- bundles/libcommbase/libcommbase/routines/discourse_data_exchange_server_error.sh
+- bundles/libcommbase/libcommbase/routines/filter_pyttsx3_voices_by_language.sh
+- bundles/libcommbase/libcommbase/routines/list_all_voices_available_for_pyttsx3.py
+- bundles/libcommbase/libcommbase/routines/toggle_default_capture_device.sh
+- bundles/libcommbase/libcommbase/skills/runners/toggle_default_capture_device.sh
+- bundles/libcommbase/resources/i18n/
+- i18n/
+- scripts/configuration/set_language.sh
+- scripts/utilities/back-up/.gitkeep
+- scripts/utilities/resizable_camera_capture.py
+- src/client/
+- src/server/
+
+### Conclusion
+
+This commit represents a consolidation of changes from the original repository, encompassing a total of 47 modifications, additions, movements, and deletions. These changes aim to enhance the overall stability, functionality, and organization of the codebase.
