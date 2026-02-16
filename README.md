@@ -71,8 +71,8 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 
 ### 8. Automation, CI/CD & Advanced Workflows
 
-* How to setup a CI-CD pipeline with GitHub Actions and AWS
-* Paste public GitHub file content on OpenAIs ChatGPT using prompts
+* How to setup a CI/CD pipeline with GitHub Actions and AWS
+* Paste public GitHub file content on OpenAI's ChatGPT using prompts
 * TODO: A list of extensions for VS Code, from the Developer Environment documentation
 * TODO: A list of Neovim plugins, from the Developer Environment documentation
 
