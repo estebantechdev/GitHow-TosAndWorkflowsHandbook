@@ -1,8 +1,7 @@
-Reflect changes made to an original Git repository in a copy repository
-------------------------------------------------------------------------
+Steps to Reflect changes made to an original Git repository in a copy repository
+--------------------------------------------------------------------------------
 
-- Backup the copy repo
------------------------
+## Backup the copy repo
 
 Example:
 Original repo: https://github.com/estebanways/commbase
@@ -21,8 +20,7 @@ Or, depending on your branches
 git pull origin main
 ```
 
-- Remove all the directories and files except .git/ in the copy repo
----------------------------------------------------------------------
+## Remove all the directories and files except .git/ in the copy repo
 
 Check the repo directory properties include number of files and content size.
 
@@ -32,11 +30,9 @@ For example:
 
 You can use the script detailed-directory-info.sh to retrieve that information.
 
-- Paste a copy of the content, except .git/ from the original repo to the copy repo
-------------------------------------------------------------------------------------
+## Paste a copy of the content, except .git/ from the original repo to the copy repo
 
-- In the copy repo
--------------------
+## In the copy repo
 
 ```shell
 
@@ -45,13 +41,11 @@ git diff > tmp_diff.txt
 
 Paste the file to the directory: Reflect changes made to an original Git repository in a copy repository.
 
-- Select pieces of text to paste in ChatGPT
---------------------------------------------
+## Select pieces of text to paste in ChatGPT
 
 Consolidate results in a single text tmp_diff_consolidated.txt
 
-Prompt
--------
+**Prompt**
 
 Using this advice:
 
@@ -87,13 +81,11 @@ Using the previous advice, Create a Git commit content using the next summary of
 
 PASTE ANOTHER PIECE OF GIT DIFF HERE ...
 
-- Organize the consolidated content in a new file tmp_commit.txt
------------------------------------------------------------------
+## Organize the consolidated content in a new file tmp_commit.txt
 
 Sections:
 
-Title:
-------
+**Title**
 
 Repository Refactoring and Feature Enhancements: Consolidated Changes
 
@@ -102,8 +94,7 @@ Or, relies on the case:
 Consolidating Changes: Modifications, Additions, Movements, and Deletions
 
 
-Content:
---------
+**Content**
 
 Consolidating Changes from Original Repository
 
@@ -225,8 +216,7 @@ The changes made in this update include:
 [OK] Adding new scripts for internationalization purposes.
 [OK] Adding new files to manage the conversations directory.
 
-- Commit using the content of tmp_commit.txt to the copy repository on local and push changes on GitHub.com
-------------------------------------------------------------------------------------------------------------
+## Commit using the content of tmp_commit.txt to the copy repository on local and push changes on GitHub.com
 
 ```shell
 # Make sure you checked out your feature branch
