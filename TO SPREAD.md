@@ -1,5 +1,11 @@
 # Git How-Tos and Workflows: Hands-On Git for Daily Use
 
+## How to install Git on Linux
+
+For a detailed walkthrough of Git installation, see the Git module on the DIY Linux Book:
+
+<https://github.com/estebantechdev/diy-linux-book/tree/main/Module5/Git>
+
 ## How to install Git on MS Windows
 
 To install Git on Windows, you should use the official Git for Windows installer available from the official Git website. The process is straightforward and involves downloading the executable file and running the setup wizard, generally accepting the default options. 
@@ -1331,9 +1337,11 @@ Using Stash
 
 This version allows you to stash and pop individual files while maintaining a clear flow for handling urgent tasks.
 
-## Create and set up a new repository on gitlab.com
+##  git config – How to Configure Git Settings to Improve Your Development Workflow
 
 TODO:
+
+Web: https://www.freecodecamp.org/news/git-config-how-to-configure-git-settings/
 
 ## Reconfigure git user and email on a fresh OS installation before running any new commit
 
@@ -1351,12 +1359,6 @@ git config --global user.email you@example.com
 After doing this, you may fix the identity used for this commit with:
 git commit --amend --reset-author
 1 file changed, insertions(+), ℗ deletions(-) mode change 100644 -> 100755 Module5/Split/Split.txt
-
-##  git config – How to Configure Git Settings to Improve Your Development Workflow
-
-TODO:
-
-Web: https://www.freecodecamp.org/news/git-config-how-to-configure-git-settings/
 
 ## git restore
 
@@ -1407,6 +1409,10 @@ Web: https://hashnode.com/post/which-commit-message-convention-do-you-use-at-wor
 TODO:
 
 Web: https://www.freecodecamp.org/news/how-to-use-commitlint-to-write-good-commit-messages/
+
+## Git commit emoji conventions
+
+Web: <https://github.com/estebantechdev/git-commit-emoji-conventions>
 
 ## GitHub Skills
 
