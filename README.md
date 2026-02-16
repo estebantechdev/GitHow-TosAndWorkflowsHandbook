@@ -3,7 +3,8 @@
 A complete compilation of Git tutorials, practical notes, and challenges designed to guide developers from first commit to advanced workflows. Built from hands-on experience, this handbook aims to turn version control into second nature.
 
 **Author**: Esteban Herrera  
-**GitHub**: @estebantechdev
+**GitHub**: @estebantechdev  
+**X.com:**: @esteban_records
 
 ## Content
 
