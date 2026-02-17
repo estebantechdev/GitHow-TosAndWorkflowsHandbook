@@ -95,3 +95,11 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 
 * [CHALLENGE: Create a new branch enhancements to ... (improve CSS styles)](content/challenge_create_a_new_branch_enhancements_to_..._improve_css_styles/README.md)
 * [Find out TODO lines in Git repo using shell commands](content/find_out_todo_lines_in_git_repo_using_shell_commands/README.md)
+
+## Contributions
+
+Contributions and feedback are welcome! If you have suggestions for improvements or additional tools, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [CC0 1.0 Universal](LICENSE) - see the [LICENSE](LICENSE) file for details.
