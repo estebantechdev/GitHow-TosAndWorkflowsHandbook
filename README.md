@@ -4,7 +4,7 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 
 **Author**: Esteban Herrera  
 **GitHub**: @estebantechdev  
-**X.com:**: @esteban_records
+**X.com**: @esteban_records
 
 ## Content
 
