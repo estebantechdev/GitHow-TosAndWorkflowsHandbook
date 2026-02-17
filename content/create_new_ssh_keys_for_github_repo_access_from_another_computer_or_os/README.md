@@ -1,2 +1,41 @@
 # Create new SSH keys for GitHub repo access from another computer or OS
 
+After a period of time, after a comamnd to connect to your repository online like this:
+-
+-
+-$ co my_repo
+-$ git status
+-$ git pull origin main
+-
+-You should get an access error like this:
+-...
+-git@github.com: Permission denied (public key).
+-fatal: Could not read from remote repository.
+-
+-Please make sure your have the correct acces rights.
+-...
+-
+-
+-The problem is that you do not have your GitHub's SSH keys in your file ~/.ssh/id_rsa. To resolve the problem, recreate the SSH keys in the terminal and paste them in a new SSH keys section, currently on http://github.com/settings/keys
+-
+-Remember to use the github account's email as the email parameter.
+-
+-$ ssh-keygen -t ed25519 -C stv.herrera@gmail.com
+-
+-Copy the passphrase to the clipboard and then go to paste it following the instructions on GitHub.com
+-
+-$ ssh-add ~/.ssh/id_ed25519
+-
+-Insert your passphrase.
+-
+-$ cd path/to/clone/repo/dir
+-
+-$ git clone git@github.com:user/repo.git
+-
+-$ cd repo-dir
+-
+-Open VS Code Editor
+-
+-$ code .
+-
+-Or, open VS Code wherever and select `File > Open Folder`.

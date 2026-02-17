@@ -1,2 +1,62 @@
 # Git commands for files and directories
 
+-------- SHELL COMMANDS: --------------------
+-
+-These commands basically should be used only when the files are untracked/unstaged/not put under version control (except for the commands to change file permissions and make a file executable).
+-
+-Create a new file:
+-$ touch filename
+-
+-Create a new directory (you have to create a directory and a new file in it in the same command):
+-$ touch newdirectory/newfile
+-Do not use mkdir for creating new directories or git is not going to log it (put it under version control), what it means that it is not going to stage it when you run 'git add' later on. If you did use mkdir, you can remove the empty directories using 'rm -rf' and then recreate them with 'touch'.
+-
+-Remove any file or directory permissions:
+-$ chmod 777 directoryname/filename
+-$ chmod 777 directoryname/*
+-
+-Make a file executable:
+-$ chmod +x filename
+-
+-Move a unstaged (untracked) file (It can be read):
+-$ mv file
+-
+-------- GIT COMMANDS: --------------------
+-
+-These commands only work when the files are tracked/staged (added the staging area).
+-
+-Move/Rename a file:
+-$ git mv filename directory/newfilename
+-
+-Move/Rename a directory:
+-$ git mv directory/ directoryrenamed/
+-
+-Remove a file from the staging area or the commit area:
+-$ git add . 
+-$ git status
+-$ git reset
+-This is a mixed reset. It removes a file from the staging area to the working directory, or to the staging area in case of it has been previously committed. See the 3 reset types.
+-**We can use "git restore --staged <file>..." to unstage
+-
+-Delete a file from the working directory:
+-$ git rm filename
+-
+-Delete a directory from the working directory:
+-$ git rm -r directory/
+--r: allows recursive removal when a leading directory name is given.
+-
+-Remove a folder from the tracked, but the repository structure remains. It also works to remove folder/directory only from git repository (remote) and not from the local:
+-$ git rm -r --cached FolderName
+---cached: Use this option to unstage and remove paths only from the index. Working tree files, whether modified or not, will be left alone.
+-$ git commit -m "Removed folder from repository"
+-$ git push origin main
+-After those commands, you are able to use rm -rf ./Folder to delete it.
+-CAUTION: Remember not to run rm -rf / or rm rf /* as user root (it deletes the whole system) or rm -rf ./* (because you delete the .git/ directory and other hidden files such as any .gitignore)
+-
+-Delete any untracked file or directory using git commands instead of shell commands:
+-First, add it to the staging area:
+-$ git add file1
+-Finally, delete it (for files):
+-$ git rm file1
+-Finally, delete it (for directories):
+-$ git rm -r directory/
