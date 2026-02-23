@@ -41,6 +41,7 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 
 * [Choosing a name for a Git branch](content/choosing_a_name_for_a_git_branch/README.md)
 * [Resolving a conflict](content/resolving_a_conflict/README.md)
+* [HEAD detached from HASH - nothing to commit, working tree clean](content/head_detached_from_hash_-_nothing_to_commit_working_tree_clean/README.md)
 * [Restoring an old version of a file](content/restoring_an_old_version_of_a_file/README.md)
 * [Undoing changes in Git: revert, reset, checkout, and clean – When and how to use them](content/undoing_changes_in_git_revert_reset_checkout_and_clean_when_and_how_to_use_them/README.md)
 * [Git reset to remote head – How to reset a remote branch to origin](content/git_reset_to_remote_head_how_to_reset_a_remote_branch_to_origin/README.md)
