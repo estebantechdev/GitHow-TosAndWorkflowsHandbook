@@ -77,6 +77,7 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 * [Paste public GitHub file content on OpenAI's ChatGPT using prompts](content/paste_public_github_file_content_on_openais_chatgpt_using_prompts/README.md)
 * TODO: A list of extensions for VS Code, from the Developer Environment documentation
 * TODO: A list of Neovim plugins, from the Developer Environment documentation
+* [Git Worktrees for Parallel Agent Execution](content/git_worktrees_for_parallel_agent_execution/README.md)
 
 ### 9. Repository Maintenance & Optimization
 
