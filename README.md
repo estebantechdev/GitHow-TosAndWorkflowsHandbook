@@ -91,6 +91,7 @@ A complete compilation of Git tutorials, practical notes, and challenges designe
 ### 10. Tags, Milestones & Repository Synchronization
 
 * [Git milestone tagging options](content/git_milestone_tagging_options/README.md)
+* [Following The Spirit Of Semantic Versioning](content/following_the_spirit_of_semantic_versioning/README.md)
 * [Reflect changes made to an original Git repository in a copy repository](content/reflect_changes_made_to_an_original_git_repository_in_a_copy_repository/README.md)
 
 ### 11. Practical Exercises & Shell Usage
