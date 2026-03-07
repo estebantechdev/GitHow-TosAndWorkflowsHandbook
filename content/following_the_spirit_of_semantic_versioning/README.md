@@ -2,15 +2,15 @@
 
 ## Content
 
-**Why Developers Tag Versions**
+[Why Developers Tag Versions](#why-developers-tag-versions)  
 
-**Semantic Versioning: Structure Of The Version Number**
+[Semantic Versioning: Structure Of The Version Number](#semantic-versioning-structure-of-the-version-number)
 
-**First Versioning Approach**
+[First Versioning Approach](#first-versioning-approach)
 
-**Second Versioning Approach**
+[Second Versioning Approach](#second-versioning-approach)
 
-**Versioning at API-breaking Changes**
+[Versioning at API-breaking Changes](#versioning-at-api-breaking-changes)
 
 ## Why Developers Tag Versions
 
