@@ -4,7 +4,7 @@ Steps to Reflect changes made to an original Git repository in a copy repository
 ## Backup the copy repo
 
 Example:
-Original repo: https://github.com/estebanways/commbase
+Original repo: https://github.com/estebanways/commbase  
 Copy repo: https://github.com/mydroidandi/commbase
 
 Practice the following in both repositories before copy them:
