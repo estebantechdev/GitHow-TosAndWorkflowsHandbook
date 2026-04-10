@@ -222,6 +222,14 @@ $ git tag [v0.1.0]
 Version the code using the git Annotated Tags:
 $ git tag -a v1.0 -m "my version 1.0"
 
+Signed version:
+$ git tag -s v1.0 -m "version 1.0"
+
+What this signed version does:
+Release version 1.0” → clearly marks a milestone.
+initial stable release → gives context about maturity.
+signed for authenticity and integrity → signals that this tag is cryptographically verified.
+
 * It is useful in SourceTree or any other editor/IDE mechanism such as Git Graph extension for Visual Studio Code to see which commit is a version, graphically.
 * Useful to mark project version.
 
